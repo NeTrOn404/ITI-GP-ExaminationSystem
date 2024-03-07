@@ -1,0 +1,1290 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/19/2024 6:46:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NAGY"
+  DTS:CreatorName="NAGY\N A G Y"
+  DTS:DTSID="{FB5AEFF8-1EE0-4691-90AE-40954D911785}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Dim_Intake"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{17A810A5-13A6-42D4-B903-47E467177B61}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.ITI-GP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F7FE6A36-2458-457D-B2CD-0576093BE04B}"
+      DTS:ObjectName="LocalHost.ITI-GP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=ITI-GP;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Dim_Intake-{F7FE6A36-2458-457D-B2CD-0576093BE04B}LocalHost.ITI-GP;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.ITI-GP-DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4326E030-0CD4-4EB5-9932-BB50CD8051A1}"
+      DTS:ObjectName="LocalHost.ITI-GP-DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=ITI-GP-DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Dim_Intake-{4326E030-0CD4-4EB5-9932-BB50CD8051A1}LocalHost.ITI-GP-DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.ITI-GP-DW 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EC6338F3-8069-4670-8582-400BBB4EC62A}"
+      DTS:ObjectName="LocalHost.ITI-GP-DW 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=ITI-GP-DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Dim_Intake-{EC6338F3-8069-4670-8582-400BBB4EC62A}LocalHost.ITI-GP-DW 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.ITI-GP-DW 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{208FD4EC-F01E-40FB-9040-7345A0802191}"
+      DTS:ObjectName="LocalHost.ITI-GP-DW 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=ITI-GP-DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Dim_Intake-{208FD4EC-F01E-40FB-9040-7345A0802191}LocalHost.ITI-GP-DW 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dim_Intake"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{ff86bfc4-f25b-40ad-b490-31b227eaeb06}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_Intake"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim_Intake\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Department]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Intake\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.ITI-GP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.ITI-GP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].Columns[Dept_Id]"
+                      cachedDataType="i4"
+                      cachedName="Dept_Id"
+                      externalMetadataColumnId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Id]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Id]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].Columns[Dept_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Name"
+                      externalMetadataColumnId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Name]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Name]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].Columns[Dept_Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Location"
+                      externalMetadataColumnId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Location]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Location]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].Columns[Dept_Budget]"
+                      cachedDataType="numeric"
+                      cachedName="Dept_Budget"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Budget]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Budget]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].Columns[Dept_NoEmp]"
+                      cachedDataType="i4"
+                      cachedName="Dept_NoEmp"
+                      externalMetadataColumnId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_NoEmp]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_NoEmp]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].Columns[Dept_Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Email"
+                      externalMetadataColumnId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Email]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Email]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].Columns[Ins_Id_mgr]"
+                      cachedDataType="i4"
+                      cachedName="Ins_Id_mgr"
+                      externalMetadataColumnId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ins_Id_mgr]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Ins_Id_mgr]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].Columns[Dept_Mgr_HireDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Dept_Mgr_HireDate"
+                      externalMetadataColumnId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Mgr_HireDate]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Mgr_HireDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Id]"
+                      dataType="i4"
+                      name="Dept_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Location" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Budget]"
+                      dataType="numeric"
+                      name="Dept_Budget"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_NoEmp]"
+                      dataType="i4"
+                      name="Dept_NoEmp" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Email" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ins_Id_mgr]"
+                      dataType="i4"
+                      name="Ins_Id_mgr" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_Mgr_HireDate]"
+                      dataType="dbDate"
+                      name="Dept_Mgr_HireDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Intake\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Intake\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Department] SET [Dept_Budget] = ?,[Dept_Email] = ?,[Dept_Location] = ?,[Dept_Mgr_HireDate] = ?,[Dept_Name] = ?,[Dept_NoEmp] = ?,[Ins_Id_mgr] = ? WHERE [Dept_Id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Intake\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.ITI-GP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.ITI-GP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].Columns[Dept_Budget]"
+                      cachedDataType="numeric"
+                      cachedName="Dept_Budget"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Budget]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].Columns[Dept_Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Email"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Email]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].Columns[Dept_Id]"
+                      cachedDataType="i4"
+                      cachedName="Dept_Id"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Id]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].Columns[Dept_Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Location"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Location]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].Columns[Dept_Mgr_HireDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Dept_Mgr_HireDate"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Mgr_HireDate]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].Columns[Dept_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Name"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Name]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].Columns[Dept_NoEmp]"
+                      cachedDataType="i4"
+                      cachedName="Dept_NoEmp"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_NoEmp]" />
+                    <inputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].Columns[Ins_Id_mgr]"
+                      cachedDataType="i4"
+                      cachedName="Ins_Id_mgr"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Ins_Id_mgr]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="15"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="dbDate"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Intake\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Intake\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Intake\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Department]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Intake\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.ITI-GP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.ITI-GP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Id]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Id]"
+                      name="Dept_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Name]"
+                      length="255"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Name]"
+                      name="Dept_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Location]"
+                      length="255"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Location]"
+                      name="Dept_Location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Budget]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Budget]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Budget]"
+                      name="Dept_Budget"
+                      precision="15"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_NoEmp]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_NoEmp]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_NoEmp]"
+                      name="Dept_NoEmp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Email]"
+                      length="255"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Email]"
+                      name="Dept_Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Ins_Id_mgr]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Ins_Id_mgr]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Ins_Id_mgr]"
+                      name="Ins_Id_mgr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Mgr_HireDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Mgr_HireDate]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Mgr_HireDate]"
+                      name="Dept_Mgr_HireDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Id]"
+                      dataType="i4"
+                      name="Dept_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Location" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Budget]"
+                      dataType="numeric"
+                      name="Dept_Budget"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_NoEmp]"
+                      dataType="i4"
+                      name="Dept_NoEmp" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Email" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Ins_Id_mgr]"
+                      dataType="i4"
+                      name="Ins_Id_mgr" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Dept_Mgr_HireDate]"
+                      dataType="dbDate"
+                      name="Dept_Mgr_HireDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Id]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Id]"
+                      name="Dept_Id" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Name]"
+                      name="Dept_Name" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Location]"
+                      name="Dept_Location" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Budget]"
+                      dataType="numeric"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Budget]"
+                      name="Dept_Budget"
+                      precision="15"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_NoEmp]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_NoEmp]"
+                      name="Dept_NoEmp" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Email]"
+                      name="Dept_Email" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Ins_Id_mgr]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Ins_Id_mgr]"
+                      name="Ins_Id_mgr" />
+                    <outputColumn
+                      refId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Mgr_HireDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Dept_Mgr_HireDate]"
+                      name="Dept_Mgr_HireDate" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Intake\Slowly Changing Dimension 1"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension 1"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Dept_Budget], [Dept_Email], [Dept_Id], [Dept_Location], [Dept_Mgr_HireDate], [Dept_Name], [Dept_NoEmp], [Ins_Id_mgr] FROM [dbo].[Department]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Intake\Slowly Changing Dimension 1.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.ITI-GP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.ITI-GP]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].Columns[Dept_Budget]"
+                      cachedDataType="numeric"
+                      cachedName="Dept_Budget"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Budget]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Budget]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].Columns[Dept_Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Email"
+                      externalMetadataColumnId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Email]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].Columns[Dept_Id]"
+                      cachedDataType="i4"
+                      cachedName="Dept_Id"
+                      externalMetadataColumnId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Id]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].Columns[Dept_Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Location"
+                      externalMetadataColumnId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Location]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Location]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].Columns[Dept_Mgr_HireDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Dept_Mgr_HireDate"
+                      externalMetadataColumnId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Mgr_HireDate]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Mgr_HireDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].Columns[Dept_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Dept_Name"
+                      externalMetadataColumnId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Name]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].Columns[Dept_NoEmp]"
+                      cachedDataType="i4"
+                      cachedName="Dept_NoEmp"
+                      externalMetadataColumnId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_NoEmp]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_NoEmp]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].Columns[Ins_Id_mgr]"
+                      cachedDataType="i4"
+                      cachedName="Ins_Id_mgr"
+                      externalMetadataColumnId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Ins_Id_mgr]"
+                      lineageId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Ins_Id_mgr]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Budget]"
+                      dataType="numeric"
+                      name="Dept_Budget"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Email" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Id]"
+                      dataType="i4"
+                      name="Dept_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Location" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Mgr_HireDate]"
+                      dataType="dbDate"
+                      name="Dept_Mgr_HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Dept_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Dept_NoEmp]"
+                      dataType="i4"
+                      name="Dept_NoEmp" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input].ExternalColumns[Ins_Id_mgr]"
+                      dataType="i4"
+                      name="Ins_Id_mgr" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Intake\Slowly Changing Dimension 1.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Intake\Slowly Changing Dimension 1.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Intake\Slowly Changing Dimension 1.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Intake\Slowly Changing Dimension 1.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Intake\Slowly Changing Dimension 1.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Intake\Slowly Changing Dimension 1.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim_Intake.Paths[Changing Attribute Updates Output]"
+              endId="Package\Dim_Intake\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Dim_Intake\Slowly Changing Dimension 1.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Dim_Intake.Paths[New Output]"
+              endId="Package\Dim_Intake\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Dim_Intake\Slowly Changing Dimension 1.Outputs[New Output]" />
+            <path
+              refId="Package\Dim_Intake.Paths[OLE DB Source Output]"
+              endId="Package\Dim_Intake\Slowly Changing Dimension 1.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dim_Intake\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\Dim_Intake"
+          TopLeft="317.857143406053,127.294117588073" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dim_Intake">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Dim_Intake\OLE DB Source 1"
+          TopLeft="231.5,5.49999999999995" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Dim_Intake\Slowly Changing Dimension 1"
+          TopLeft="201.9,107.1" />
+        <EdgeLayout
+          Id="Package\Dim_Intake.Paths[OLE DB Source Output]"
+          TopLeft="310.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Dim_Intake\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
+        <EdgeLayout
+          Id="Package\Dim_Intake.Paths[New Output]"
+          TopLeft="275.766666666667,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-189.066666666667,60"
+              Start="0,0"
+              End="-189.066666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2627737226277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2627737226277"
+                    Point2="0,24.2627737226277"
+                    Point3="-4,24.2627737226277" />
+                  <mssgle:LineSegment
+                    End="-185.066666666667,24.2627737226277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-185.066666666667,24.2627737226277"
+                    Point2="-189.066666666667,24.2627737226277"
+                    Point3="-189.066666666667,28.2627737226277" />
+                  <mssgle:LineSegment
+                    End="-189.066666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.624720052083,29.2627737226277,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Dim_Intake\OLE DB Command"
+          TopLeft="228.3,208.7" />
+        <EdgeLayout
+          Id="Package\Dim_Intake.Paths[Changing Attribute Updates Output]"
+          TopLeft="345.633333333333,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.9333333333333,60"
+              Start="0,0"
+              End="-34.9333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2627737226277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2627737226277"
+                    Point2="0,24.2627737226277"
+                    Point3="-4,24.2627737226277" />
+                  <mssgle:LineSegment
+                    End="-30.9333333333333,24.2627737226277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.9333333333333,24.2627737226277"
+                    Point2="-34.9333333333333,24.2627737226277"
+                    Point3="-34.9333333333333,28.2627737226277" />
+                  <mssgle:LineSegment
+                    End="-34.9333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-96.0005729166667,29.2627737226277,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Intake\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Intake\Slowly Changing Dimension 1">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{F7FE6A36-2458-457D-B2CD-0576093BE04B}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Department]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Budget]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Dept_Budget&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Email]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Dept_Email&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Dept_Id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Location]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Dept_Location&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Mgr_HireDate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Dept_Mgr_HireDate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_Name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Dept_Name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Dept_NoEmp]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Dept_NoEmp&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Ins_Id_mgr]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Ins_Id_mgr&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
