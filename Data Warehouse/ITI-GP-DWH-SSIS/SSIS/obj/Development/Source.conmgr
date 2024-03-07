@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Source"
+  DTS:DTSID="{3C6C491A-6C63-4740-8258-BFC8C6D51300}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.;Initial Catalog=ITI_GP;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-SSIS-{3C6C491A-6C63-4740-8258-BFC8C6D51300}LocalHost.ITI_GP;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
